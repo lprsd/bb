@@ -10,6 +10,9 @@ def index(req):
 
 def post(req,post_id):
     
+    
+    is_ajax = req.GET.has_key('xhr')
+    
     post = Post.objects.get(pk=post_id)
 
     if req.method == 'POST':
@@ -23,3 +26,5 @@ def post(req,post_id):
                'comment_form':CommentForm()}
                               
     return render_to_response('post.html',payload, RequestContext(req))    
+
+    
