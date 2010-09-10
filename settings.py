@@ -63,6 +63,15 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
+AUTHENTICATION_BACKENDS = (
+    'django_openid_auth.auth.OpenIDBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+OPENID_CREATE_USERS = True
+LOGIN_URL = '/openid/login/'
+LOGIN_REDIRECT_URL = '/'
+
 ROOT_URLCONF = 'bb.urls'
 
 TEMPLATE_DIRS = (
@@ -78,5 +87,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.admin',
     'blog',
-    'django_extensions'
+    'django_extensions',
+    'django_openid_auth',
 )
+
+
+OPENID_SSO_SERVER_URL = 'https://www.google.com/accounts/o8/id'
+OPENID_SSO_SERVER_URL = 'https://www.google.com/accounts/o8/site-xrds?hd=example.com'

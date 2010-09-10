@@ -15,5 +15,6 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/(.*)', admin.site.root),
     (r'^$', 'blog.views.index'),
+    (r'^openid/', include('django_openid_auth.urls')),
     (r'node/(?P<post_id>\d+)/$', 'blog.views.post'),
 )
